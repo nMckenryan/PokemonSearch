@@ -16,7 +16,7 @@
     "preserveConstEnums": true,
     "removeComments": true,
     "sourceMap": true,
-    "strictNullChecks": true,
+    "strictNullChecks": false,
     "target": "esnext"
   },
   "include": ["./src/**/*", "./test/**/*"]

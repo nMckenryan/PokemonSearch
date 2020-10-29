@@ -4,37 +4,37 @@ const gatsbyRemarkPlugins = [
   {
     resolve: 'gatsby-remark-smartypants',
     options: {
-      dashes: 'oldschool'
-    }
+      dashes: 'oldschool',
+    },
   },
   {
     resolve: 'gatsby-remark-prismjs',
     options: {
       classPrefix: 'language-',
       inlineCodeMarker: {
-        tsx: 'tsx'
+        tsx: 'tsx',
       },
-      aliases: {}
-    }
+      aliases: {},
+    },
   },
   {
     resolve: 'gatsby-remark-images',
     options: {
-      maxWidth: 1200
-    }
+      maxWidth: 1200,
+    },
   },
   {
     resolve: 'gatsby-remark-copy-linked-files',
-    options: {}
-  }
+    options: {},
+  },
 ]
 
 module.exports = {
   siteMetadata: {
-    title: 'TypeScript Gatsby Starter',
-    author: 'Luís Rodrigues',
-    description: 'A Gatsby starter using TypeScript.',
-    siteUrl: 'https://goblindegook-gatsby-starter-typescript.netlify.com'
+    title: 'PokeSearch',
+    author: 'Nigel MR',
+    description: 'A Pokemon Search Engine',
+    siteUrl: 'https://goblindegook-gatsby-starter-typescript.netlify.com',
   },
   plugins: [
     'gatsby-plugin-typescript',
@@ -44,29 +44,29 @@ module.exports = {
       resolve: 'gatsby-plugin-typography',
       options: {
         pathToConfigModule: 'src/typography',
-        omitGoogleFont: true
-      }
+        omitGoogleFont: true,
+      },
     },
     'gatsby-plugin-catch-links',
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: 'content',
-        path: `${__dirname}/content`
-      }
+        path: `${__dirname}/content`,
+      },
     },
     {
       resolve: 'gatsby-plugin-nprogress',
       options: {
         color: '#ff5700',
-        showSpinner: false
-      }
+        showSpinner: false,
+      },
     },
     {
       resolve: 'gatsby-transformer-remark',
       options: {
-        plugins: gatsbyRemarkPlugins
-      }
+        plugins: gatsbyRemarkPlugins,
+      },
     },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
@@ -74,8 +74,8 @@ module.exports = {
       resolve: 'gatsby-plugin-mdx',
       options: {
         extensions: ['.md', '.mdx'],
-        gatsbyRemarkPlugins
-      }
+        gatsbyRemarkPlugins,
+      },
     },
     {
       resolve: 'gatsby-plugin-lunr',
@@ -83,31 +83,31 @@ module.exports = {
         languages: [
           {
             name: 'en',
-            filterNodes: node => !node.frontmatter || node.frontmatter.draft !== true,
+            filterNodes: (node) => !node.frontmatter || node.frontmatter.draft !== true,
             customEntries: [
               {
                 title: 'Another Page',
                 content: 'Welcome to page 2',
-                path: '/another-page/'
-              }
-            ]
-          }
+                path: '/another-page/',
+              },
+            ],
+          },
         ],
         fields: [
           { name: 'title', store: true, attributes: { boost: 20 } },
           { name: 'path', store: true },
           { name: 'content' },
-          { name: 'tags' }
+          { name: 'tags' },
         ],
         resolvers: {
           Mdx: {
-            title: node => node.frontmatter.title,
-            path: node => node.frontmatter.path,
-            content: node => node.rawBody,
-            tags: node => node.frontmatter.tags
-          }
-        }
-      }
+            title: (node) => node.frontmatter.title,
+            path: (node) => node.frontmatter.path,
+            content: (node) => node.rawBody,
+            tags: (node) => node.frontmatter.tags,
+          },
+        },
+      },
     },
     {
       resolve: 'gatsby-plugin-feed',
@@ -125,7 +125,7 @@ module.exports = {
                   description: node.excerpt,
                   url: site.siteMetadata.siteUrl + node.frontmatter.path,
                   guid: site.siteMetadata.siteUrl + node.frontmatter.path,
-                  custom_elements: [{ 'content:encoded': node.html }]
+                  custom_elements: [{ 'content:encoded': node.html }],
                 }
               })
             },
@@ -150,10 +150,10 @@ module.exports = {
                 }
               }
             `,
-            output: 'rss.xml'
-          }
-        ]
-      }
+            output: 'rss.xml',
+          },
+        ],
+      },
     },
     {
       resolve: 'gatsby-plugin-manifest',
@@ -172,18 +172,18 @@ module.exports = {
             // you can reference them here
             src: '/favicon/192.png',
             sizes: '192x192',
-            type: 'image/png'
+            type: 'image/png',
           },
           {
             src: '/favicon/512.png',
             sizes: '512x512',
-            type: 'image/png'
-          }
-        ]
-      }
+            type: 'image/png',
+          },
+        ],
+      },
     },
     'gatsby-plugin-sitemap',
     'gatsby-plugin-offline',
-    'gatsby-plugin-netlify'
-  ]
+    'gatsby-plugin-netlify',
+  ],
 }

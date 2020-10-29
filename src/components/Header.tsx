@@ -2,7 +2,7 @@ import React from 'react'
 import styled from '@emotion/styled'
 import { css } from '@emotion/core'
 import { Link } from 'gatsby'
-import { LunrSearch } from './LunrSearch'
+import PokemonSearch from './PokemonSearch'
 
 const style = {
   container: css`
@@ -42,7 +42,8 @@ export const Header = ({ title }: HeaderProps) => (
       <h1 css={style.title}>
         <TitleLink to="/">{title}</TitleLink>
       </h1>
-      <LunrSearch limit={10} />
+      {/* <LunrSearch limit={10} /> */}
+      <PokemonSearch />
     </div>
   </div>
 )

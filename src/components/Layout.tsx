@@ -44,6 +44,7 @@ export const Layout = ({ children }: LayoutProps) => {
         ]}
       />
       <Header title={data.site.siteMetadata.title} />
+
       <div css={wrapper}>{children}</div>
     </main>
   )
